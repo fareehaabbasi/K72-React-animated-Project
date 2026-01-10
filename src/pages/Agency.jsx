@@ -1,11 +1,48 @@
-import React from "react";
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
+import React, { useRef } from "react";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 const Agency = () => {
+  gsap.registerPlugin(ScrollTrigger)
+  const imageDivRef = useRef(null)
+  const imageRef = useRef(null)
+  const imageArr = [
+    "/src/assets/images/agency-img/first-sec-img.jpg",
+    "/src/assets/images/agency-img/first-sec-img2.jpg",
+    "/src/assets/images/agency-img/first-sec-img3.jpg",
+    "/src/assets/images/agency-img/first-sec-img4.jpg",
+    "/src/assets/images/agency-img/first-sec-img5.jpg",
+    "/src/assets/images/agency-img/first-sec-img6.jpg",
+    "/src/assets/images/agency-img/first-sec-img7.jpg",
+    "/src/assets/images/agency-img/first-sec-img8.jpg",
+  ]
+  useGSAP(() => {
+    gsap.to(imageDivRef.current, {
+      scrollTrigger: {
+        trigger: imageDivRef.current,
+        markers: true,
+        start: "top 36%",
+        end: "top -100%",
+        scrub: true,
+        pin: true,
+        onUpdate: function(elem){
+          let imageIndex;
+          if (elem.progress<1) {
+            imageIndex = Math.floor(elem.progress * (imageArr.length - 1))
+          }else {
+            imageIndex = imageArr.length-1
+          }
+          imageRef.current.src = imageArr[imageIndex]
+        }
+      }
+    })
+  })
   return (
     <div>
       <div className="section-1">
-      <div className="h-[19vw] overflow-hidden rounded-3xl w-[14vw] bg-red-700 absolute top-32 left-[30vw]">
-        <img
+      <div ref={imageDivRef} className="h-[19vw] overflow-hidden rounded-3xl w-[14vw]  absolute top-32 left-[30vw]">
+        <img ref={imageRef}
           className="w-full h-full object-cover"
           src="/src/assets/images/agency-img/first-sec-img.jpg"
           alt="first-img"
@@ -31,7 +68,7 @@ const Agency = () => {
       </div>
     </div>
     <div className="section-2 h-screen">
-
+      
     </div>
     </div>
   );
