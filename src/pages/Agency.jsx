@@ -22,10 +22,16 @@ const Agency = () => {
       scrollTrigger: {
         trigger: imageDivRef.current,
         markers: true,
-        start: "top 36%",
-        end: "top -100%",
+        start: "top 18%",
+        end: "top -200%",
         scrub: true,
         pin: true,
+        pinSpacing: true, 
+        pinReparent: true, 
+        pinType: "transform",
+        scrub:1,
+        anticipatePin: 1,
+        invalidateOnRefresh: true,
         onUpdate: function(elem){
           let imageIndex;
           if (elem.progress<1) {
@@ -40,7 +46,7 @@ const Agency = () => {
   })
   return (
     <div>
-      <div className="section-1">
+      <div className="section-1 py-1">
       <div ref={imageDivRef} className="h-[19vw] overflow-hidden rounded-3xl w-[14vw]  absolute top-32 left-[30vw]">
         <img ref={imageRef}
           className="w-full h-full object-cover"
