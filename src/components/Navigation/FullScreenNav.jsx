@@ -22,7 +22,7 @@ const FullScreenNav = () => {
           </svg>
         </div>
       </div>
-      <div>
+      <div className="h-20 w-20 bg-red-700">
         <div></div>
         <div></div>
       </div>
@@ -82,6 +82,12 @@ const FullScreenNav = () => {
         <div className="cursor-pointer link relative border-y-1 border-white/30">
           <h1 className="font-[font500] leading-[0.8] pt-3 text-center text-[8.7vw] uppercase">Work</h1>
           <div className="moveLink absolute flex top-0 bg-[#D3FD50] text-black">
+            <div className="moveX flex items-center border-r-2 border-[#D3FD50]">
+              <h2 className="whitespace-nowrap font-[font500] leading-[0.8] pt-3 text-center text-[8.7vw] uppercase">Blog&nbsp;</h2>
+              <img className="w-56 shrink-0 h-[70px] object-cover rounded-full" src="/src/assets/images/NavbarScreen/4th-line.jpg" alt="img" />
+              <h2 className="whitespace-nowrap font-[font500] leading-[0.8] pt-3 text-center text-[8.7vw] uppercase">Blog&nbsp;</h2>
+              <img className="w-56 shrink-0 h-[70px] object-cover rounded-full" src="/src/assets/images/NavbarScreen/4th-line-vid..png" alt="" />
+            </div>
             <div className="moveX flex items-center border-r-2 border-[#D3FD50]">
               <h2 className="whitespace-nowrap font-[font500] leading-[0.8] pt-3 text-center text-[8.7vw] uppercase">Blog&nbsp;</h2>
               <img className="w-56 shrink-0 h-[70px] object-cover rounded-full" src="/src/assets/images/NavbarScreen/4th-line.jpg" alt="img" />
