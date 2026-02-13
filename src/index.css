@@ -9,9 +9,7 @@
   src: url(../src/assets/fonts/Lausanne-300.woff2);
 }
 
-body {
-  overflow-x: hidden;
-}
+
 
 .moveLink {
   opacity: 0;

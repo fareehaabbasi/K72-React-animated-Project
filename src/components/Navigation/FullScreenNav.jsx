@@ -1,11 +1,49 @@
-import React from "react";
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
+import React, { useRef } from "react";
 import { FaHeart } from "react-icons/fa6";
 
 const FullScreenNav = () => {
+  const stairParentRef = useRef(null);
+  useGSAP(() => {
+      const tl = gsap.timeline()
+  
+      tl.to(stairParentRef.current, {
+        display: 'block',
+      })
+      tl.from('.stair', {
+        height:0,
+        stagger: {
+          amount:-0.25
+        }
+      })
+      tl.to(".stair" ,{
+        y: "100%",
+        stagger: {
+          amount:-0.25
+        }
+      })
+      tl.to(stairParentRef.current, {
+        display: 'none'
+      })
+      tl.to(".stair" ,{
+        y: "0",
+      })
+    })
   return (
-    <div id="fullScreenDiv" className="text-white h-screen w-full absolute bg-black">
-      <div className="flex w-full justify-between items-start">
-        <div className="p-2">
+    <div id="fullScreenDiv" className="text-white overflow-hidden h-screen w-full absolute bg-black">
+      <div className="h-screen w-full fixed">
+        <div className='h-full w-full flex'>
+        <div className='stair h-full w-1/5 bg-black'></div>
+        <div className='stair h-full w-1/5 bg-white'></div>
+        <div className='stair h-full w-1/5 bg-black'></div>
+        <div className='stair h-full w-1/5 bg-white'></div>
+        <div className='stair h-full w-1/5 bg-black'></div>
+      </div>
+      </div>
+      <div className="relative">
+        <div className="flex w-full justify-between p-2 items-start">
+        <div className="">
         <div className="w-30">
           <svg
             className="w-full h-full"
@@ -22,9 +60,9 @@ const FullScreenNav = () => {
           </svg>
         </div>
       </div>
-      <div className="h-20 w-20 bg-red-700">
-        <div></div>
-        <div></div>
+      <div className="h-20 w-20 relative mr-10 cursor-pointer">
+        <div className="h-32 w-0.5 bg-[#D3FD50] absolute -rotate-45 origin-top-left"></div>
+        <div className="h-32 w-0.5 bg-[#D3FD50] absolute right-0 rotate-45 origin-top-right"></div>
       </div>
       </div>
       <div id="all=links" className="py-8">
@@ -119,6 +157,7 @@ const FullScreenNav = () => {
             </div>
           </div>
         </div> */}
+      </div>
       </div>
     </div>
   );
