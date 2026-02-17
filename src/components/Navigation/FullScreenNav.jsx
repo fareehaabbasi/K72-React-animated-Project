@@ -32,7 +32,7 @@ const FullScreenNav = () => {
     })
   return (
     <div id="fullScreenDiv" className="text-white overflow-hidden h-screen w-full absolute bg-black">
-      <div className="h-screen w-full fixed">
+      <div ref={stairParentRef} className="h-screen w-full fixed">
         <div className='h-full w-full flex'>
         <div className='stair h-full w-1/5 bg-black'></div>
         <div className='stair h-full w-1/5 bg-white'></div>
